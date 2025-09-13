@@ -1,38 +1,216 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   text-align: center;
+  background: #000;
+  font-family: Arial, sans-serif;
+  color: #fff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  max-width: 1050px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Task form */
+.task__wrapper {
+  width: 100%;
+  margin-top: 2rem;
   display: flex;
-  flex-direction: column;
+  column-gap: 1rem;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.task__items {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  row-gap: 0.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.task__items input {
+  background: #000;
+  outline: none;
+  border: 1px solid #ff8303;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 7px 14px;
+  color: #fff;
+}
+
+.task__add-btn {
+  border: 2px solid #ff8303;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  color: #ff8303;
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.task__add-btn:hover {
+  background: #ff8303;
+  color: #000;
+}
+
+/* Custom dropdown */
+.filter-btn {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.dropdown {
+  width: 150px;
+  background: #000;
+  border: 1px solid #ff8303;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #ff8303;
+  font-weight: 600;
+  text-align: left;
+}
+
+.dropdown-selected {
+  padding: 8px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.arrow {
+  margin-left: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.arrow.rotate {
+  transform: rotate(180deg);
+}
+
+/* dropdown ochilganda animatsiya */
+.dropdown-options {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #ff8303;
+  border-top: none;
+  display: none;
+  position: absolute;
+  width: 150px;
+  background: #000;
+  z-index: 10;
+}
+
+.dropdown.open .dropdown-options {
+  display: block;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.dropdown-options li {
+  margin: 0; /* 🔥 oraliq yo‘q */
+  padding: 8px 15px; /* faqat ichki joy */
+  cursor: pointer;
+  border-bottom: 1px solid #333; /* ajratish uchun chiziq */
+}
+
+.dropdown-options li:hover {
+  background: #ff8303;
+  color: #000;
+}
+
+.dropdown-options li:last-child {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom: none; /* oxirgi elementda chiziq bo‘lmaydi */
+}
+
+/* Todo list */
+ul {
+  list-style: none;
+  margin-top: 2rem;
+  padding: 0;
+}
+
+li {
+  background: #111;
+  border: 1px solid #ff8303;
+  margin-bottom: 0.8rem;
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: column; /* title va description ustma-ust chiqadi */
+  align-items: flex-start;
+  row-gap: 6px;
+}
+
+.todo-title {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #ff8303;
+}
+
+.todo-description {
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+/* Edit form */
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  width: 100%;
+  align-items: stretch;
+}
+
+.edit-input {
+  background: #000;
+  outline: none;
+  border: 1px solid #ff8303;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 7px 14px;
+  color: #fff;
+  width: 100%;
+}
+
+.todo-actions {
+  margin-top: 0.5rem;
+  display: flex;
+  column-gap: 0.5rem;
+}
+
+li button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  background: #ff8303;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+li button:hover {
+  background: #ffa94d;
+}
+
+.task-item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
